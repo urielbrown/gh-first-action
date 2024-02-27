@@ -1,0 +1,26 @@
+name: Freeform Input
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "The environment to deploy to"
+        required: true
+        default: "production"
+        type: choice
+        options:
+          - production
+          - qa
+          - dev
+      tag:
+        description: "The tag to use"
+        required: true
+        default: "03123pa"
+      environment2:
+        description: "The environment to deploy to"
+        required: true
+        type: environment
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to ${{ github.event.inputs.environment }} environment. Tag used - ${{ github.event.inputs.tag }}"
