@@ -19,6 +19,11 @@ on:
         description: "The environment to deploy to"
         required: true
         type: environment
+      notify:
+        description: "Notify of deployment?"
+        required: true
+        type: boolean
+        default: false
 jobs:
   info:
     runs-on: ubuntu-latest
